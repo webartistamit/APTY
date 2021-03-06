@@ -1,0 +1,239 @@
+.cardblock__allcards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height: 1000px;
+  overflow-x: hidden;
+}
+.card {
+  background-color: $white;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 10px;
+  margin-top: 20px;
+  width: 23.5%;
+  box-shadow: 0 0 0px 0px #9b93fd;
+  transition: all 0.2s ease-in;
+  &:hover {
+    box-shadow: 0 0 11px 2px #9b93fd;
+  }
+
+  &__selcard {
+    border: 2px solid $white;
+    border-radius: 100%;
+    opacity: 0.8;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+    background: none;
+    transition: all 0.1s ease-in;
+    display: none;
+    &--active {
+      background: url(../images/checkmark.svg) center center;
+      border: none;
+      opacity: 1;
+      display: block;
+    }
+  }
+
+  &__img {
+    height: 149px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    cursor: pointer;
+    & img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+    &:hover .card__selcard {
+      display: block;
+    }
+  }
+  &__tag {
+    background-color: $tagBg;
+    border-radius: 11px;
+    color: $white;
+    font-family: $secondryfont;
+    font-size: 12px;
+    line-height: 17px;
+    height: 23px;
+    font-weight: 600;
+    padding: 2px 8px;
+    text-transform: uppercase;
+    margin-right: 3px;
+  }
+  &__title {
+    color: $cardtitle;
+    font-family: $primaryfont;
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 600;
+    margin: 10px 0 0 10px;
+  }
+  &__description {
+    color: $cardext;
+    font-size: 16px;
+    line-height: 22px;
+    margin: 10px 0 0 10px;
+    font-family: $secondryfont;
+  }
+  &__cta {
+    text-align: right;
+    margin-top: 25px;
+    margin-right: 5px;
+    &--msgcta,
+    &--heartcta {
+      display: inline-block;
+      margin-left: 15px;
+      cursor: pointer;
+    }
+    &--heartcta {
+      background: url("../images/heart.svg") no-repeat center center;
+      width: 24px;
+      height: 21px;
+    }
+    &--fevorate--active {
+    }
+  }
+  &__fevorate--active {
+    background: url("../images/heart-active.svg") no-repeat center center;
+  }
+
+  &--active {
+    background-color: $cardtitle;
+    & .card {
+      &__title,
+      &__description {
+        color: $white;
+      }
+    }
+  }
+}
+
+.listview--active {
+  flex-direction: row;
+  height: auto;
+  .card {
+    width: 100%;
+    display: flex;
+    margin-top: 25px;
+    &__img {
+      width: 200px;
+      margin-bottom: 0px;
+    }
+    &__details {
+      margin-left: 10px;
+    }
+    &__description {
+      margin-top: 5px;
+      margin-left: 0;
+    }
+    &__title {
+      margin-left: 0px;
+    }
+    &__cta {
+      text-align: left;
+      margin-top: 10px;
+    }
+    &__cta--msgcta,
+    &__cta--heartcta {
+      margin-left: 0px;
+      margin-right: 5px;
+    }
+  }
+}
+
+.selitems {
+  background-image: linear-gradient(135deg, $cardtitle 0%, #652bcf 100%);
+  border-radius: 40px;
+  width: 427px;
+  height: 80px;
+  display: flex;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 5vh;
+  margin: auto;
+  padding: 25px;
+  justify-content: space-between;
+  z-index: 10;
+
+  &__totalitem {
+    color: $white;
+    font-family: $secondryfont;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: left;
+  }
+  &__heart {
+    padding-top: 6px;
+    cursor: pointer;
+  }
+  &__upload {
+    padding-top: 2px;
+    cursor: pointer;
+  }
+  &__delitem {
+    cursor: pointer;
+  }
+}
+
+// Responsive Card CSS
+
+@include lg {
+  .cardblock__allcards {
+    height: 1500px;
+  }
+  .card {
+    width: 30%;
+  }
+}
+
+@include md {
+  .cardblock__allcards {
+    flex-direction: row;
+    height: auto;
+  }
+  .card {
+    width: 100%;
+  }
+  .listview--active {
+    .card {
+      width: 100%;
+      margin-top: 10px;
+      &__img {
+        width: 75px;
+        height: 60px;
+      }
+      &__details {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+      &__tags,
+      &__description {
+        display: none;
+      }
+      &__title {
+        margin-top: 15px;
+      }
+      &__cta {
+        &--msgcta {
+          display: none;
+        }
+        &--heartcta {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  .selitems {
+    display: none;
+  }
+}

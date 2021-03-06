@@ -1,0 +1,22 @@
+body {
+  background-color: $pageBg;
+  margin: 0;
+  padding: 0;
+  font-family: $primaryfont;
+}
+
+@include xl {
+  .desktop-on-hide {
+    display: none;
+  }
+}
+@include lg {
+  .desktop-on-hide {
+    display: none;
+  }
+}
+@include md {
+  .mobile-on-hide {
+    display: none !important;
+  }
+}

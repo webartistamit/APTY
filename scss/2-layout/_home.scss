@@ -1,0 +1,128 @@
+.wrapper {
+  padding: 20px;
+  display: flex;
+  position: relative;
+}
+.mobile-header {
+  display: none;
+}
+.mobblock {
+  display: flex;
+  &__block {
+    display: block;
+    width: 50%;
+  }
+  &__menu {
+    margin-right: 25px;
+    margin-left: auto;
+    margin-top: 40px;
+    &--click {
+      width: 23px;
+      background: url(../images/menu.svg) no-repeat;
+      height: 17px;
+      display: block;
+      background-size: contain;
+    }
+  }
+  &__close {
+    background: url(../images/cancel.svg) no-repeat;
+    height: 28px;
+    background-size: contain;
+    transition: all 0.2s;
+  }
+  &__logo {
+    margin-top: 20px;
+    display: block;
+    margin-left: 15px;
+  }
+}
+.cardblock {
+  padding-left: 20px;
+  width: 100%;
+  &__cardhead {
+    display: flex;
+    margin-top: 20px;
+    margin-left: 10px;
+  }
+}
+.cardhead {
+  &__title {
+    color: $pink;
+    font-size: 36px;
+    width: 50%;
+  }
+  &__cta {
+    width: 50%;
+    position: relative;
+  }
+  &__viewcta {
+    background-color: #ffffff;
+    border-radius: 30px;
+    width: 95px;
+    height: 50px;
+    padding: 5px;
+    position: absolute;
+    right: 0;
+  }
+  &__girdviewcta,
+  &__listviewcta {
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    padding-top: 10px;
+
+    &--active {
+      background-color: #2b2ecf;
+      & img {
+        filter: contrast(2);
+      }
+    }
+    & img {
+      margin: auto;
+    }
+  }
+  &__listviewcta {
+    padding-top: 13px;
+  }
+}
+
+// Responsive Css here
+
+@include md {
+  .wrapper {
+    padding: 10px;
+    background: url(../images/mobilebg.png) no-repeat top center;
+    background-size: contain;
+    display: block;
+  }
+
+  .cardblock {
+    padding: 0;
+    &__cardhead {
+      display: block;
+      margin-left: 0;
+    }
+  }
+  .cardhead {
+    &__title,
+    &__cta {
+      width: 100%;
+      text-align: center;
+    }
+    &__title {
+      text-shadow: 0px 0px 10px #1b1a1a;
+      color: $white;
+      font-family: $primaryfont;
+      font-size: 50px;
+      padding: 63px 0 74px 0;
+      text-align: center;
+      line-height: 70px;
+      margin: auto;
+    }
+    &__viewcta {
+      margin: auto;
+      position: relative;
+    }
+  }
+}
